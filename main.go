@@ -4,16 +4,16 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/DanielDevD/Crud-golang/configs"
 	"github.com/DanielDevD/Crud-golang/handlers"
 	"github.com/go-chi/chi/v5"
+	"github.com/spf13/viper"
 )
 
 func main(){
-	err := configs.Load()
-	if err != nil{
-		panic(err)
-	}
+	viper.SetConfigFile("./envs/.env")
+	viper.ReadInConfig()
+
+	port := viper.Get("PORT").(string)
 
 	r := chi.NewRouter()
 	r.Post("/", handlers.Create)
@@ -22,5 +22,5 @@ func main(){
 	r.Get("/", handlers.List)
 	r.Get("/{id}", handlers.Get)
 
-	http.ListenAndServe(fmt.Sprintf(":%s", configs.GetServerPort()), r)
+	http.ListenAndServe(fmt.Sprintf(":%s", port), r)
 }

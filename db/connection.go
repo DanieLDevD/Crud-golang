@@ -4,16 +4,25 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/DanielDevD/Crud-golang/configs"
 	_ "github.com/lib/pq"
+	"github.com/spf13/viper"
 )
 func OpenConnection() (*sql.DB, error) {
-	conf := configs.GetDB()
+	viper.SetConfigFile("../envs/.env")
+	viper.ReadInConfig()
 
-	sc := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
-conf.Host, conf.Port, conf.User, conf.Pass, conf.Database)
+	host := viper.Get("HOST").(string)
+	dbPort := "5432"
+	user := viper.Get("USER").(string)
+	pass := viper.Get("PASS").(string)
+	dbName := viper.Get("NAME").(string)
 
-conn, err := sql.Open("postgres",sc)
+	url := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
+	host, dbPort, user, pass, dbName)
+
+	fmt.Println(url)
+
+conn, err := sql.Open("postgres", url)
 if err != nil {
 	panic(err)
 }
