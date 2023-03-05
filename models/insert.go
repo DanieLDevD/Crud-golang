@@ -1,9 +1,7 @@
 package models
 
 import (
-
-	"github.com/aprendagolang/api-pgsql/db"
-
+	"github.com/DanielDevD/Crud-golang/db"
 )
 
 func Insert(todo Todo) (id int64, err error) {
@@ -13,7 +11,7 @@ func Insert(todo Todo) (id int64, err error) {
 	}
 	defer conn.Close()
 
-	sql := `INSERT INTO todos (title, description, done) VALUES ( $1, $2, $3)RETURNING id`
+	sql := `INSERT INTO todos (title, description, done) VALUES ( $1, $2, $3) RETURNING id`
 
 	err = conn.QueryRow(sql, todo.Title, todo.Description, todo.Done).Scan(&id)
 	

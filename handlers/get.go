@@ -6,7 +6,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/aprendagolang/api-pgsql/models"
+	"github.com/go-chi/chi/v5"
+
+	"github.com/DanielDevD/Crud-golang/models"
 )
 
 func Get(w http.ResponseWriter, r *http.Request){

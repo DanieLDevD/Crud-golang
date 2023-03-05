@@ -1,11 +1,11 @@
-package db 
+package db
 
 import (
-"database/sql"
-"fmt"
+	"database/sql"
+	"fmt"
 
-"github.com/aprendagolang/api-pgsql/configs"
-_ "github.com/lib/pq"
+	"github.com/DanielDevD/Crud-golang/configs"
+	_ "github.com/lib/pq"
 )
 func OpenConnection() (*sql.DB, error) {
 	conf := configs.GetDB()

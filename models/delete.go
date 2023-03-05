@@ -1,6 +1,6 @@
 package models
 
-import "github.com/aprendagolang/api-pgsql/db"
+import "github.com/DanielDevD/Crud-golang/db"
 
 func Delete(id int64) (int64, error) {
 	conn, err := db.OpenConnection()

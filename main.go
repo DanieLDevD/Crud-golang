@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/aprendagolang/api-pgsql/configs"
-	"github.com/aprendagolang/api-pgsql/handlers"
+	"github.com/DanielDevD/Crud-golang/configs"
+	"github.com/DanielDevD/Crud-golang/handlers"
 	"github.com/go-chi/chi/v5"
 )
 

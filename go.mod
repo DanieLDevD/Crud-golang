@@ -1,4 +1,4 @@
-module github.com/aprendagolang/api-pgsql
+module github.com/DanielDevD/Crud-golang
 
 go 1.20
 

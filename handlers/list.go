@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/aprendagolang/api-pgsql/models"
+	"github.com/DanielDevD/Crud-golang/models"
 )
 
 func List(w http.ResponseWriter, r *http.Request){

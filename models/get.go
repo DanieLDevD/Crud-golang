@@ -1,6 +1,6 @@
 package models
 
-import "github.com/aprendagolang/api-pgsql/db"
+import "github.com/DanielDevD/Crud-golang/db"
 
 func Get(id int64) (todo Todo, err error) {
 	conn, err := db.OpenConnection()
